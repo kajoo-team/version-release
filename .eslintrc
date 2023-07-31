@@ -1,0 +1,60 @@
+{
+  "env": {
+    "commonjs": true,
+    "node": true,
+    "es6": true
+  },
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 9
+  },
+  "globals": {},
+  "rules": {
+    "eqeqeq": "off",
+    "keyword-spacing": "error",
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "require-yield": "error",
+    "require-await": "error",
+    "no-unexpected-multiline": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "ArrayExpression": 1,
+        "ObjectExpression": 1
+      }
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "no-console": [
+      2,
+      { "allow": ["info", "warn", "error"] }
+    ],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": false
+      }
+    ],
+    "arrow-parens": [
+      2,
+      "as-needed"
+    ],
+    "require-jsdoc": ["error"],
+    "valid-jsdoc": [
+      "error",
+      {
+        "requireParamDescription": false
+      }
+    ]
+  }
+}

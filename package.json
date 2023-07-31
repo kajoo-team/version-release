@@ -1,0 +1,44 @@
+{
+  "name": "@kajoo-team/version-release",
+  "version": "0.1.1",
+  "description": "Library to automate release generation and publish",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint -c ./.eslintrc \"lib/**/*.js\" --ignore-pattern \"lib/notes-generator/**/*.js\"",
+    "docs": "documentation build lib/** -f html -o docs",
+    "update:docs": "npm run docs && git add docs/. && git diff-index --quiet HEAD || git commit -m 'Updating `docs`'",
+    "update-version": "node -e 'require(\"@kajoo-team/version-release\").updateVersion()'",
+    "release-version": "node -e 'require(\"@kajoo-team/version-release\").releaseVersion()'"
+  },
+  "author": "kajoo",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "@kajoo-team/git-hooks": "git+https://github.com/kajoo-team/git-hooks.git",
+    "@kajoo-team/version-release": "git+https://github.com/kajoo-team/version-release.git",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "changelog-parser": "^2.8.0",
+    "conventional-changelog-writer": "^4.0.16",
+    "conventional-commits-parser": "^3.1.0",
+    "current-git-branch": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "fs-extra": "^9.0.0",
+    "get-stream": "^6.0.0",
+    "github-base": "^1.0.0",
+    "into-stream": "^6.0.0",
+    "semver": "^7.3.2"
+  },
+  "devDependencies": {
+    "documentation": "^13.1.0",
+    "eslint": "^7.20.0",
+    "husky": "^5.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run update:docs"
+    }
+  }
+}

@@ -1,0 +1,1316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset='utf-8'>
+  <title>@kajoo-team/version-release 0.1.1 | Documentation</title>
+  <meta name='description' content='Library to automate release generation and publish'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet'>
+  <link href='assets/style.css' rel='stylesheet'>
+  <link href='assets/github.css' rel='stylesheet'>
+  <link href='assets/split.css' rel='stylesheet'>
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>@kajoo-team/version-release</h3>
+          <div class='mb1'><code>0.1.1</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            spellcheck='false'
+            autocapitalize='off'
+            autocorrect='off'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+
+
+                <li><a
+                  href='#releaseversionparams'
+                  class="">
+                  ReleaseVersionParams
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#default_release_version_params'
+                  class="">
+                  DEFAULT_RELEASE_VERSION_PARAMS
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#releaseversion'
+                  class="">
+                  releaseVersion
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#getlastnotefromchangelog'
+                  class="">
+                  getLastNoteFromChangelog
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#generaterelease'
+                  class="">
+                  generateRelease
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#pr_message_filename'
+                  class="">
+                  PR_MESSAGE_FILENAME
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#release_rules'
+                  class="">
+                  RELEASE_RULES
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#updateversion'
+                  class="">
+                  updateVersion
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#getparsedmessages'
+                  class="">
+                  getParsedMessages
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#getreleasetype'
+                  class="">
+                  getReleaseType
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#updatepackagejson'
+                  class="">
+                  updatePackageJson
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#getpullrequestdescription'
+                  class="">
+                  getPullRequestDescription
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#getlastversion'
+                  class="">
+                  getLastVersion
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#generatechangelog'
+                  class="">
+                  generateChangelog
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#generatenotes'
+                  class="">
+                  generateNotes
+
+                </a>
+
+                </li>
+
+
+                <li><a
+                  href='#commitversionfiles'
+                  class="">
+                  commitVersionFiles
+
+                </a>
+
+                </li>
+
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='releaseversionparams'>
+      ReleaseVersionParams
+    </h3>
+
+
+  </div>
+
+
+  <p>Settings for <a href="#releaseversion">releaseVersion</a></p>
+
+    <div class='pre p1 fill-light mt0'>ReleaseVersionParams</div>
+
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+
+        <div class='space-bottom0'>
+          <span class='code bold'>npmPublish</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>?)</code>
+          : Whether it should
+<code>npm publish</code>
+ or not
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='default_release_version_params'>
+      DEFAULT_RELEASE_VERSION_PARAMS
+    </h3>
+
+
+  </div>
+
+
+  <p>Default <code>params</code> for <a href="#releaseversion">releaseVersion</a></p>
+
+    <div class='pre p1 fill-light mt0'>DEFAULT_RELEASE_VERSION_PARAMS</div>
+
+    <p>
+      Type:
+      <a href="#releaseversionparams">ReleaseVersionParams</a>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+
+        <div class='space-bottom0'>
+          <span class='code bold'>npmPublish</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a>?)</code>
+          : Whether it should
+<code>npm publish</code>
+ or not
+
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='releaseversion'>
+      releaseVersion
+    </h3>
+
+
+  </div>
+
+
+  <p>Generates a <code>release</code> and (maybe) publishes the package</p>
+
+    <div class='pre p1 fill-light mt0'>releaseVersion(params: <a href="#releaseversionparams">ReleaseVersionParams</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>params</span> <code class='quiet'>(<a href="#releaseversionparams">ReleaseVersionParams</a>
+            = <code>DEFAULT_RELEASE_VERSION_PARAMS</code>)</code>
+	    The release params (@see
+<a href="#releaseversionparams">ReleaseVersionParams</a>
+)
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        The release object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='getlastnotefromchangelog'>
+      getLastNoteFromChangelog
+    </h3>
+
+
+  </div>
+
+
+  <p>Gets the last release note from the <code>CHANGELOG</code> file</p>
+
+    <div class='pre p1 fill-light mt0'>getLastNoteFromChangelog(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        The release note object
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+
+
+      <pre class='p1 overflow-auto round fill-light'>{
+  <span class="hljs-attr">version</span>: <span class="hljs-string">'1.0.0'</span>,
+  <span class="hljs-attr">title</span>: <span class="hljs-string">'1.0.0 (dd-MM-YYYY)'</span>,
+  <span class="hljs-attr">body</span>: <span class="hljs-string">'### Changes\n\n* Update API\n* Fix bug #1'</span>
+}</pre>
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='generaterelease'>
+      generateRelease
+    </h3>
+
+
+  </div>
+
+
+  <p>Generates a <code>release</code> from a release note object</p>
+
+    <div class='pre p1 fill-light mt0'>generateRelease(notesObject: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>notesObject</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    The
+<code>release note</code>
+ object (@see
+<a href="#getlastnotefromchangelog">getLastNoteFromChangelog</a>
+)
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>:
+        The release object
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='pr_message_filename'>
+      PR_MESSAGE_FILENAME
+    </h3>
+
+
+  </div>
+
+
+  <p>Pull request filename</p>
+
+    <div class='pre p1 fill-light mt0'>PR_MESSAGE_FILENAME</div>
+
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='release_rules'>
+      RELEASE_RULES
+    </h3>
+
+
+  </div>
+
+
+  <p>Release tags list (@see <a href="https://www.conventionalcommits.org/en/v1.0.0/">https://www.conventionalcommits.org/en/v1.0.0/</a>)</p>
+
+    <div class='pre p1 fill-light mt0'>RELEASE_RULES</div>
+
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+
+
+      <pre class='p1 overflow-auto round fill-light'>{ <span class="hljs-attr">breaking</span> : <span class="hljs-string">'major'</span> },
+{ <span class="hljs-attr">revert</span>   : <span class="hljs-string">'patch'</span> },
+{ <span class="hljs-attr">feat</span>     : <span class="hljs-string">'minor'</span> },
+{ <span class="hljs-attr">fix</span>      : <span class="hljs-string">'patch'</span> },
+{ <span class="hljs-attr">refactor</span> : <span class="hljs-string">'patch'</span> },
+{ <span class="hljs-attr">ci</span>       : <span class="hljs-string">'patch'</span> },
+{ <span class="hljs-attr">docs</span>     : <span class="hljs-string">'patch'</span> },
+{ <span class="hljs-attr">style</span>    : <span class="hljs-string">'patch'</span> }</pre>
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='updateversion'>
+      updateVersion
+    </h3>
+
+
+  </div>
+
+
+  <p>Generate or not changelog and updates package.json version based on the release type parsed from PR messages</p>
+
+    <div class='pre p1 fill-light mt0'>updateVersion(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='getparsedmessages'>
+      getParsedMessages
+    </h3>
+
+
+  </div>
+
+
+  <p>Parse a txt file with the PR messages into objects</p>
+
+    <div class='pre p1 fill-light mt0'>getParsedMessages(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        The parsed objects from pr messages text file
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+
+
+      <pre class='p1 overflow-auto round fill-light'>Text:<span class="hljs-string">'feat(scope): broadcast $destroy event on scope destruction\nCloses #1'</span> becomes
+
+ <span class="hljs-attr">Returns</span>:
+[
+ {
+     <span class="hljs-attr">type</span>: <span class="hljs-string">'feat'</span>,
+     <span class="hljs-attr">scope</span>: <span class="hljs-string">'scope'</span>,
+     <span class="hljs-attr">subject</span>: <span class="hljs-string">'broadcast $destroy event on scope destruction'</span>,
+     <span class="hljs-attr">merge</span>: <span class="hljs-literal">null</span>,
+     <span class="hljs-attr">header</span>: <span class="hljs-string">'feat(scope): broadcast $destroy event on scope destruction'</span>,
+     <span class="hljs-attr">body</span>: <span class="hljs-literal">null</span>,
+     <span class="hljs-attr">footer</span>: <span class="hljs-string">'Closes #1'</span>,
+     <span class="hljs-attr">notes</span>: [],
+     <span class="hljs-attr">references</span>:
+     [ { <span class="hljs-attr">action</span>: <span class="hljs-string">'Closes'</span>,
+        <span class="hljs-attr">owner</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">repository</span>: <span class="hljs-literal">null</span>,
+        <span class="hljs-attr">issue</span>: <span class="hljs-string">'1'</span>,
+        <span class="hljs-attr">raw</span>: <span class="hljs-string">'#1'</span>,
+        <span class="hljs-attr">prefix</span>: <span class="hljs-string">'#'</span> } ],
+     <span class="hljs-attr">mentions</span>: [],
+     <span class="hljs-attr">revert</span>: <span class="hljs-literal">null</span> }
+]</pre>
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='getreleasetype'>
+      getReleaseType
+    </h3>
+
+
+  </div>
+
+
+  <p>Gets the release type based on the commits objects</p>
+
+    <div class='pre p1 fill-light mt0'>getReleaseType(commits: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>commits</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The array with the parsed objects representing formatted messages
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The release type (minor, major, patch) or null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='updatepackagejson'>
+      updatePackageJson
+    </h3>
+
+
+  </div>
+
+
+  <p>Updates the package.json file version</p>
+
+    <div class='pre p1 fill-light mt0'>updatePackageJson(version: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>version</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The version to update on the file
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='getpullrequestdescription'>
+      getPullRequestDescription
+    </h3>
+
+
+  </div>
+
+
+  <p>Gets the description of the branch PR and creates text file with it's messages</p>
+
+    <div class='pre p1 fill-light mt0'>getPullRequestDescription(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='getlastversion'>
+      getLastVersion
+    </h3>
+
+
+  </div>
+
+
+  <p>Gets the last release version from Github, if no release is found gets the version from package.json</p>
+
+    <div class='pre p1 fill-light mt0'>getLastVersion(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        The last
+<code>package</code>
+ version
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='generatechangelog'>
+      generateChangelog
+    </h3>
+
+
+  </div>
+
+
+  <p>Generates a CHANGELOG.md or updates it with new release notes</p>
+
+    <div class='pre p1 fill-light mt0'>generateChangelog(notes: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>notes</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The content to be added on the changelog file
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='generatenotes'>
+      generateNotes
+    </h3>
+
+
+  </div>
+
+
+  <p>Generates a string in conventional-changelog format with the release notes</p>
+
+    <div class='pre p1 fill-light mt0'>generateNotes(changelogContext: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>, parsedCommits: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>changelogContext</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+	    Object with the changelog options ex: { version: 1.0.0 }
+
+          </div>
+
+        </div>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>parsedCommits</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    Parsed commits objects
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
+        A string in conventional-changelog format with the release notes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+
+  <div class='clearfix'>
+
+    <h3 class='fl m0' id='commitversionfiles'>
+      commitVersionFiles
+    </h3>
+
+
+  </div>
+
+
+  <p>Commit the release files (changelog and package.json) on the branch</p>
+
+    <div class='pre p1 fill-light mt0'>commitVersionFiles(nextReleaseVersion: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>nextReleaseVersion</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The new release version
+
+          </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code>:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

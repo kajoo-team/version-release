@@ -1,0 +1,118 @@
+version: 2
+
+jobs:
+  checkout_code:
+    working_directory: /home/circleci/version-release
+
+    docker:
+      - image: circleci/node:12
+
+    steps:
+      - checkout
+
+      - save_cache:
+          key   : repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths :
+            - ./
+
+  node_dependencies:
+    working_directory: /home/circleci/version-release
+
+    docker:
+      - image: circleci/node:12
+
+    steps:
+      - restore_cache:
+          key: repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+
+      - restore_cache:
+          key: node-cache-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name    : Authenticating with github registry
+          command : npm config set '//npm.pkg.github.com/:_authToken' "${GH_TOKEN}"
+
+      - run:
+          name    : Installing npm dependencies
+          command : npm install
+
+      - save_cache:
+          key   : node-cache-{{ .Branch }}-{{ checksum "package.json" }}
+          paths :
+            - ./node_modules
+
+  npm_version:
+      working_directory: /home/circleci/version-release
+
+      docker:
+        - image: circleci/node:12
+
+      steps:
+        - restore_cache:
+            key: repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+
+        - restore_cache:
+            key: node-cache-{{ .Branch }}-{{ checksum "package.json" }}
+
+        - run:
+            name    : Updating version
+            command : npm run update-version
+
+  npm_release:
+      working_directory: /home/circleci/version-release
+
+      docker:
+        - image: circleci/node:12
+
+      steps:
+        - restore_cache:
+            key: repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
+
+        - restore_cache:
+            key: node-cache-{{ .Branch }}-{{ checksum "package.json" }}
+
+        - run:
+            name    : Authenticating with registry
+            command : |
+              echo "registry=https://npm.pkg.github.com/kajoo-team" > .npmrc
+              echo "//npm.pkg.github.com/:_authToken=$GH_TOKEN" >> .npmrc
+
+        - run:
+            name    : Releasing and publishing version
+            command : npm run release-version
+
+workflows:
+  version: 2
+
+  build-and-deploy:
+    jobs:
+      - checkout_code
+
+      - node_dependencies:
+          context:
+            - github
+          requires:
+            - checkout_code
+
+      - npm_version_approval:
+          filters:
+            branches:
+              ignore: master
+          type: approval
+          requires:
+            - node_dependencies
+
+      - npm_version:
+          context:
+            - github
+          requires:
+            - npm_version_approval
+
+      - npm_release:
+          context:
+            - github
+          filters:
+            branches:
+              only: master
+          requires:
+            - node_dependencies
